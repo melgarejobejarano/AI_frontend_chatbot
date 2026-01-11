@@ -3,7 +3,7 @@ import { Source } from "../types";
 export const sendMessageToBackend = async (query: string): Promise<{ text: string; sources: Source[] }> => {
   try {
     const augmentedQuery = `${query}\n\nInstrucciones estrictas: Siempre responde en formato Markdown rico. Usa ## para títulos, - para listas, ** para negritas para énfasis, > para citas de fuentes, y tablas si hay datos. Asegúrate de que el output \'text\' sea estructurado y legible.`;
-    const response = await fetch('http://loadbalancer-chatbot-44046910.us-east-1.elb.amazonaws.com/query', {
+    const response = await fetch('https://ubyl63hnfk.execute-api.us-east-1.amazonaws.com/query', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
